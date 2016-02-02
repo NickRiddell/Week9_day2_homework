@@ -7,11 +7,13 @@ var CountryView = function(country){
 
   this.population = document.createElement('p');
   this.population.innerText = 'Population ' + country.population;
+};
 
-  this.render = function(parent) {
-    parent.appendChild(this.name);
-    parent.appendChild(this.capital);
-    parent.appendChild(this.population);
+CountryView.prototype = {
+  render: function(parent) {
+  parent.appendChild(this.name);
+  parent.appendChild(this.capital);
+  parent.appendChild(this.population);
   }
 };
 
