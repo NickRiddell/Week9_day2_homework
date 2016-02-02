@@ -72,10 +72,32 @@ window.onload = function(){
        countryAppList.push(country);
        localStorage.setItem('countryAppList', JSON.stringify(countryAppList) );
       }
-      };
 
-    }
-  };
+     // Find bordering countries
+     var borders = country.borders;
+
+     var borderingCountries = [];
+
+     for (var i = 0; i < countries.length; i++) {
+      if (borders.includes(countries[i].alpha3Code)) {
+        borderingCountries.push(countries[i]);
+      }
+     };
+     var div = document.getElementById('country-div');
+     var border = document.createElement('h3');
+     border.innerText = 'Bordering Countries';
+     div.appendChild(border);
+
+     for (country of borderingCountries) {
+      var view = new CountryView(country);
+      view.render(div);
+     }
+
+
+
+    };
+  }
+};
 
   request.send(null);
 
