@@ -10,12 +10,17 @@ window.onload = function(){
       console.log("got the data");
 /*****SELECTOR*****/
       var countries = JSON.parse( request.responseText );
-      var form = document.getElementById('countries-form')
+      var form = document.getElementById('countries-form');
       var selectList = document.createElement("select");
       /*By assigning the id of ‘countries-select’, this variable can later be called*/
       selectList.id = 'countries-select';
-      // selectList.placeholder = "Choose"
       form.appendChild(selectList);
+
+      /*work in progress*/
+      // var placeholder = document.createElement('placeholder');
+      // placeholder.value = 'None';
+      // placeholder.innerText = 'Choose';
+      // selectList.appendChild(placeholder);
 
       for (var i = 0; i < countries.length; i++) {
         var option = document.createElement("option");
