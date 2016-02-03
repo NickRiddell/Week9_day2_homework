@@ -6,7 +6,7 @@ var CountryView = function(country){
   this.capital.innerText = 'Capital ' + country.capital;
 
   this.population = document.createElement('p');
-  this.population.innerText = 'Population ' + country.population;
+  this.population.innerText = 'Population ' + country.population.toLocaleString();
 };
 
 CountryView.prototype = {

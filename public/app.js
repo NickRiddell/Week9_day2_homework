@@ -14,6 +14,7 @@ window.onload = function(){
       var selectList = document.createElement("select");
       /*By assigning the id of ‘countries-select’, this variable can later be called*/
       selectList.id = 'countries-select';
+      // selectList.placeholder = "Choose"
       form.appendChild(selectList);
 
       for (var i = 0; i < countries.length; i++) {
