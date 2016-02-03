@@ -2,3 +2,9 @@ body {
   background-color: tomato;
   color: wheat;
 }
+
+#map {
+  height: 500px;
+  width: 500px;
+  background-color: tomato;
+}

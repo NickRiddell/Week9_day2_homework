@@ -16,11 +16,6 @@ window.onload = function(){
       selectList.id = 'countries-select';
       form.appendChild(selectList);
 
-      /*work in progress*/
-      // var placeholder = document.createElement('placeholder');
-      // placeholder.value = 'None';
-      // placeholder.innerText = 'Choose';
-      // selectList.appendChild(placeholder);
 
       for (var i = 0; i < countries.length; i++) {
         var option = document.createElement("option");
@@ -49,6 +44,17 @@ window.onload = function(){
         /*The view is then rendered*/
         view.render(div);
 
+        /*Map stuff*/
+        var center = { lat: country.latlng[0] , lng: country.latlng[1]}
+        var zoomNumber = 5;
+        var map = new Map(center, zoomNumber);
+        map.addMarker(center, "1");
+        var countryName = country.name;
+        var countryCapital = country.capital;
+        var countryPopulation = country.population.toLocaleString();
+
+        map.addInfoWindow(center, countryName);
+
        /*****PERSISTING DATA*****/ 
 
        var countryAppList = JSON.parse( localStorage.getItem('countryAppList') ) || [];
@@ -63,7 +69,6 @@ window.onload = function(){
 
      /* Find bordering countries */
      var alphaCodes = country.borders;
-     console.log(country.borders);
      var borderingCountries = [];
      /*Looping over all countries checking to see if their alpha3Code matches any of those in the selected country's borders array*/
      for (var i = 0; i < countries.length; i++) {
